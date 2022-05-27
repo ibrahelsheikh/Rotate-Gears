@@ -1,0 +1,285 @@
+# created by Ibrahim El sheikh
+# at 11:14 in 27/5/2022
+
+from OpenGL.GL import *
+from OpenGL.GLUT import *
+from OpenGL.GLU import *
+from math import *
+
+ang_one =0
+ang_two = 0
+ang_three =0
+
+INTERVAL = 200 # 1000 msec
+
+
+def initGL():
+    glClear(GL_COLOR_BUFFER_BIT)
+    glClearColor(0, 0, 0, 0)
+    glLoadIdentity()
+
+    glMatrixMode(GL_PROJECTION)
+    glOrtho(-1, 1, -1, 1, -1, 1)
+
+    glMatrixMode(GL_MODELVIEW)
+    gluLookAt(0, 0, 0, 0, 0, -1, 0, 1, 0)
+
+
+
+
+
+def gear_one(r1, r2):
+    glColor3ub(255, 0, 0)
+
+    glBegin(GL_LINES)  # connect them as lines and close the loop
+    resolution = 10
+
+    # draw lines in first
+    for ang in range(0, 360, resolution):
+
+        if ang % 40 < 20:
+            x1 = r1 * cos(ang * pi / 180)  # pi / 180 from angle to rad
+            y1 = r1 * sin(ang * pi / 180)  # pi / 180 from angle to rad
+
+            glVertex2d(x1, y1)
+
+    # draw lines in big circle
+
+    for ang in range(0, 360, resolution):
+
+        if ang % 40 >= 20:
+            x2 = r2 * cos(ang * pi / 180)  # pi / 180 from angle to rad
+            y2 = r2 * sin(ang * pi / 180)  # pi / 180 from angle to rad
+            glVertex2d(x2, y2)
+
+    glEnd()
+
+    glBegin(GL_LINES)
+
+    for ang in range(0, 360, resolution):
+
+        if ang % 40 == 10:
+            x1 = r1 * cos(ang * pi / 180)  # pi / 180 from angle to rad
+            y1 = r1 * sin(ang * pi / 180)  # pi / 180 from angle to rad
+
+            glVertex2d(x1, y1)
+
+        if ang % 40 == 20:
+            x2 = r2 * cos(ang * pi / 180)  # pi / 180 from angle to rad
+            y2 = r2 * sin(ang * pi / 180)  # pi / 180 from angle to rad
+            glVertex2d(x2, y2)
+
+    glEnd()
+
+
+
+    # lines between circles
+
+    glBegin(GL_LINES)
+
+    for ang in range(10, 370, resolution):
+
+        if ang % 40 == 0:
+            x1 = r1 * cos(ang * pi / 180)  # pi / 180 from angle to rad
+            y1 = r1 * sin(ang * pi / 180)  # pi / 180 from angle to rad
+
+            glVertex2d(x1, y1)
+
+        if ang % 40 == 30:
+            x2 = r2 * cos(ang * pi / 180)  # pi / 180 from angle to rad
+            y2 = r2 * sin(ang * pi / 180)  # pi / 180 from angle to rad
+            glVertex2d(x2, y2)
+
+    glEnd()
+
+
+
+def gear_two(r1, r2):
+    glColor3ub(255, 0, 0)
+
+    glBegin(GL_LINES)  # connect them as lines and close the loop
+    resolution = 10
+
+    # draw lines in first
+    for ang in range(0, 360, resolution):
+
+        if ang % 40 < 20:
+            x1 = r1 * cos(ang * pi / 180)  # pi / 180 from angle to rad
+            y1 = r1 * sin(ang * pi / 180)  # pi / 180 from angle to rad
+
+            glVertex2d(x1, y1)
+
+    # draw lines in big circle
+
+    for ang in range(0, 360, resolution):
+
+        if ang % 40 >= 20:
+            x2 = r2 * cos(ang * pi / 180)  # pi / 180 from angle to rad
+            y2 = r2 * sin(ang * pi / 180)  # pi / 180 from angle to rad
+            glVertex2d(x2, y2)
+
+    glEnd()
+
+    glBegin(GL_LINES)
+
+    for ang in range(0, 360, resolution):
+
+        if ang % 40 == 10:
+            x1 = r1 * cos(ang * pi / 180)  # pi / 180 from angle to rad
+            y1 = r1 * sin(ang * pi / 180)  # pi / 180 from angle to rad
+
+            glVertex2d(x1, y1)
+
+        if ang % 40 == 20:
+            x2 = r2 * cos(ang * pi / 180)  # pi / 180 from angle to rad
+            y2 = r2 * sin(ang * pi / 180)  # pi / 180 from angle to rad
+            glVertex2d(x2, y2)
+
+    glEnd()
+
+
+
+    # lines between circles
+
+    glBegin(GL_LINES)
+
+    for ang in range(10, 370, resolution):
+
+        if ang % 40 == 0:
+            x1 = r1 * cos(ang * pi / 180)  # pi / 180 from angle to rad
+            y1 = r1 * sin(ang * pi / 180)  # pi / 180 from angle to rad
+
+            glVertex2d(x1, y1)
+
+        if ang % 40 == 30:
+            x2 = r2 * cos(ang * pi / 180)  # pi / 180 from angle to rad
+            y2 = r2 * sin(ang * pi / 180)  # pi / 180 from angle to rad
+            glVertex2d(x2, y2)
+
+    glEnd()
+
+
+
+def gear_three(r1, r2):
+    glColor3ub(255, 0, 0)
+
+    glBegin(GL_LINES)  # connect them as lines and close the loop
+    resolution = 10
+
+    # draw lines in first
+    for ang in range(0, 360, resolution):
+
+        if ang % 40 < 20:
+            x1 = r1 * cos(ang * pi / 180)  # pi / 180 from angle to rad
+            y1 = r1 * sin(ang * pi / 180)  # pi / 180 from angle to rad
+
+            glVertex2d(x1, y1)
+
+    # draw lines in big circle
+
+    for ang in range(0, 360, resolution):
+
+        if ang % 40 >= 20:
+            x2 = r2 * cos(ang * pi / 180)  # pi / 180 from angle to rad
+            y2 = r2 * sin(ang * pi / 180)  # pi / 180 from angle to rad
+            glVertex2d(x2, y2)
+
+    glEnd()
+
+    glBegin(GL_LINES)
+
+    for ang in range(0, 360, resolution):
+
+        if ang % 40 == 10:
+            x1 = r1 * cos(ang * pi / 180)  # pi / 180 from angle to rad
+            y1 = r1 * sin(ang * pi / 180)  # pi / 180 from angle to rad
+
+            glVertex2d(x1, y1)
+
+        if ang % 40 == 20:
+            x2 = r2 * cos(ang * pi / 180)  # pi / 180 from angle to rad
+            y2 = r2 * sin(ang * pi / 180)  # pi / 180 from angle to rad
+            glVertex2d(x2, y2)
+
+    glEnd()
+
+    # lines between circles
+
+    glBegin(GL_LINES)
+
+    for ang in range(10, 370, resolution):
+
+        if ang % 40 == 0:
+            x1 = r1 * cos(ang * pi / 180)  # pi / 180 from angle to rad
+            y1 = r1 * sin(ang * pi / 180)  # pi / 180 from angle to rad
+
+            glVertex2d(x1, y1)
+
+        if ang % 40 == 30:
+            x2 = r2 * cos(ang * pi / 180)  # pi / 180 from angle to rad
+            y2 = r2 * sin(ang * pi / 180)  # pi / 180 from angle to rad
+            glVertex2d(x2, y2)
+
+    glEnd()
+
+
+
+def clock_timer(v):
+
+    draw()
+
+    glutTimerFunc(INTERVAL, clock_timer, 1)
+
+          
+def draw():
+    glClear(GL_COLOR_BUFFER_BIT)
+    global ang_one
+    global ang_two 
+    global ang_three
+
+
+
+    glRotate (ang_one,0,0,1)
+    gear_one(.75, .95)
+    glLoadIdentity()
+
+    glRotate(ang_two ,0,0,1)
+    gear_two(.5,.7)
+    glLoadIdentity()
+
+
+    glRotate(ang_three, 0,0,1)
+    gear_three (.3 ,.45)
+    glLoadIdentity()
+
+
+
+    if ang_one !=360 or ang_two !=-360 or ang_three != 360 :
+
+        ang_one =ang_one+5
+        ang_two =ang_two -5
+        ang_three = ang_three +5
+    else:
+        ang_one = 0
+        ang_two = 0
+        ang_three = 0
+
+
+    print (ang_one)
+    glutSwapBuffers()
+
+
+
+
+if __name__ == "__main__":
+    glutInit()
+    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB)
+    glutInitWindowPosition(300, 50)  # position
+
+    glutInitWindowSize(500, 500)
+    glutCreateWindow(b"Gears")
+    initGL()
+    glutDisplayFunc(draw)
+    glutTimerFunc(INTERVAL, clock_timer, 1)
+
+    glutMainLoop()
